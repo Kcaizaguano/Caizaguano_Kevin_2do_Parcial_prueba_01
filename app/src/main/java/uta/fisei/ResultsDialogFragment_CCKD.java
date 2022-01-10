@@ -3,13 +3,14 @@ package uta.fisei;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.util.Log;
 
-public class ResultsDialogFragment_CCKD extends DialogFragment{
+import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProvider;
+
+public class ResultsDialogFragment_CCKD extends DialogFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,7 @@ public class ResultsDialogFragment_CCKD extends DialogFragment{
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final QuizViewModel_CCKD quizViewModelCCKD = ViewModelProviders.of(getActivity()).get(QuizViewModel_CCKD.class);
+        final QuizViewModel_CCKD quizViewModelCCKD = ViewModelProvider.(getActivity()).getViewModelStore(QuizViewModel_CCKD.class);
         int totalGuesses = quizViewModelCCKD.getTotalGuesses();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(

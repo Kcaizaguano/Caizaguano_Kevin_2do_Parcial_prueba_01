@@ -1,8 +1,10 @@
 package uta.fisei;
 
-import android.arch.lifecycle.ViewModel;
+
 import android.content.res.AssetManager;
 import android.util.Log;
+
+import androidx.lifecycle.ViewModel;
 
 import java.io.IOException;
 import java.util.ArrayList;
