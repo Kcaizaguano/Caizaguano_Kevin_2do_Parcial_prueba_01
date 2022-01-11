@@ -24,4 +24,9 @@
         <item>6</item>
         <item>8</item>
     </string-array>
+
+    <string-array name="dialog_items">
+        <item>Cancel</item>
+        <item>Confirm</item>
+    </string-array>
 </resources>
