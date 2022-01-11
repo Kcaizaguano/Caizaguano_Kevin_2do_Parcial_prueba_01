@@ -4,10 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout-sw700dp-land/content_main.xml" value="0.1" />
+        <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout-sw700dp-land/fragment_add_edit.xml" value="0.1" />
+        <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout-sw700dp-land/fragment_contacts.xml" value="0.1" />
+        <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout-sw700dp-land/fragment_details.xml" value="0.1" />
+        <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout/activity_login_cckd.xml" value="0.19655797101449277" />
         <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout/activity_main.xml" value="0.275" />
+        <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout/activity_main_cckd.xml" value="0.275" />
+        <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout/activity_settings_cckd.xml" value="0.275" />
         <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout/content_main.xml" value="0.275" />
         <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout/content_settings.xml" value="0.275" />
         <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout/fragment_main.xml" value="0.275" />
+        <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout/fragment_main_cckd.xml" value="0.275" />
+        <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout/fragment_settings_cckd.xml" value="0.275" />
+        <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/layout/login_cckd.xml" value="0.275" />
+        <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/menu/fragment_details_menu.xml" value="0.1" />
         <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/menu/menu_main.xml" value="0.1" />
         <entry key="..\:/Aplicaciones_Moviles/Android_Studio/Practicas/Caizaguano_Kevin_2do_Parcial_prueba_01/app/src/main/res/xml/preferences.xml" value="0.1" />
       </map>

@@ -48,5 +48,8 @@
     <string name="invalid_update_uri">Invalid update Uri:</string>
     <string name="invalid_delete_uri">Invalid delete Uri:</string>
     <string name="insert_failed">Insert failed: %s</string>
+    <string name="txt_usuario">Usuario</string>
+    <string name="txt_contraseña">Contraseña</string>
+    <string name="txt_login">Ingresar</string>
 
 </resources>

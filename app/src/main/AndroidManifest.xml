@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Caizaguano_Kevin_2do_Parcial_prueba_01">
         <activity
+            android:name=".Login_cckd"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
