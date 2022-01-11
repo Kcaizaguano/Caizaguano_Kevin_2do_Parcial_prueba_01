@@ -51,5 +51,6 @@
     <string name="txt_usuario">Usuario</string>
     <string name="txt_contraseña">Contraseña</string>
     <string name="txt_login">Ingresar</string>
+    <string name="txt_registrar">Registrar</string>
 
 </resources>
