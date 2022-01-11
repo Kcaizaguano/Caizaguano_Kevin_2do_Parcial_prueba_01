@@ -67,7 +67,7 @@ public class MainActivityFragment_CCKD extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main_cckd, container, false);
 
         fileNameList = new ArrayList<>();
         quizCountriesList = new ArrayList<>();
@@ -148,9 +148,7 @@ public class MainActivityFragment_CCKD extends Fragment {
                 ++flagCounter;
             }
         }
-
         loadNextFlag();
-
     }
 
     private void loadNextFlag(){

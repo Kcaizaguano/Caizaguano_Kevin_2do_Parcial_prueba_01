@@ -20,7 +20,7 @@ public class ResultsDialogFragment_CCKD extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final QuizViewModel_CCKD quizViewModelCCKD = ViewModelProvider.(getActivity()).getViewModelStore(QuizViewModel_CCKD.class);
+        final QuizViewModel_CCKD quizViewModelCCKD = ViewModelProvider.of (getActivity()).get(QuizViewModel_CCKD.class);
         int totalGuesses = quizViewModelCCKD.getTotalGuesses();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(
@@ -30,7 +30,7 @@ public class ResultsDialogFragment_CCKD extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 try{
-                    com.nadershamma.apps.androidfunwithflags.MainActivityFragment quizFragment = (com.nadershamma.apps.androidfunwithflags.MainActivityFragment) getParentFragment();
+                   MainActivityFragment_CCKD quizFragment = (MainActivityFragment_CCKD) getParentFragment();
                     try{
                         quizFragment.resetQuiz();
                     }catch (Exception e){
