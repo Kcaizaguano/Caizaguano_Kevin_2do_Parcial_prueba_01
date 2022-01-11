@@ -12,98 +12,64 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
     public static final String CHOICES = "pref_numberOfChoices";
     public static final String REGIONS = "pref_regionsToInclude";
-    private boolean phoneDevice = true;
+    private boolean deviceIsPhone = true;
     private boolean preferencesChanged = true;
+    private MainActivityFragment_CCKD quizFragment;
+    private QuizViewModel_CCKD quizViewModel;
+    private OnSharedPreferenceChangeListener preferencesChangeListener;
+
+    private void setSharedPreferences() {
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .registerOnSharedPreferenceChangeListener(preferencesChangeListener);
+    }
+
+    private void screenSetUp() {
+        if (getScreenSize() == Configuration.SCREENLAYOUT_SIZE_LARGE ||
+                getScreenSize() == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
+            deviceIsPhone = false;
+        }
+        if (deviceIsPhone) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_main_cckd);
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-        PreferenceManager.getDefaultSharedPreferences(this).
-                registerOnSharedPreferenceChangeListener(
-                        preferencesChangeListener);
-
-        int screenSize = getResources().getConfiguration().screenLayout &
-                Configuration.SCREENLAYOUT_SIZE_MASK;
-
-        if (screenSize == Configuration.SCREENLAYOUT_SIZE_LARGE ||
-                screenSize == Configuration.SCREENLAYOUT_SIZE_XLARGE)
-            phoneDevice = false;
-
-        if (phoneDevice)
-            setRequestedOrientation(
-                    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        this.quizViewModel = ViewModelProviders.of(this).get(QuizViewModel_CCKD.class);
+        this.preferencesChangeListener = new PreferenceChangeListener_CCKD(this);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        this.setSharedPreferences();
+        this.screenSetUp();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
         if (preferencesChanged) {
-            MainActivityFragment_CCKD quizFragment = (MainActivityFragment_CCKD)
-                    getSupportFragmentManager().findFragmentById(
-                            R.id.quizFragment);
+            this.quizFragment = (MainActivityFragment_CCKD) getSupportFragmentManager()
+                    .findFragmentById(R.id.quizFragment);
+            this.quizViewModel.setGuessRows(PreferenceManager.getDefaultSharedPreferences(this)
+                    .getString(CHOICES, null));
+            this.quizViewModel.setRegionsSet(PreferenceManager.getDefaultSharedPreferences(this)
+                    .getStringSet(REGIONS, null));
 
-            quizFragment.updateGuessRows(PreferenceManager.getDefaultSharedPreferences(this));
-            quizFragment.updateRegions(
-                    PreferenceManager.getDefaultSharedPreferences(this));
-            quizFragment.resetQuiz();
+            this.quizFragment.resetQuiz();
+
             preferencesChanged = false;
-
         }
     }
-
-    private OnSharedPreferenceChangeListener preferencesChangeListener = new OnSharedPreferenceChangeListener() {
-
-
-        @Override
-        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            preferencesChanged = true;
-
-            MainActivityFragment_CCKD quizFragment = (MainActivityFragment_CCKD) getSupportFragmentManager().findFragmentById(R.id.quizFragment);
-
-            if (key.equals(CHOICES)){
-                quizFragment.updateGuessRows(sharedPreferences);
-                quizFragment.resetQuiz();
-            }
-            else if(key.equals(REGIONS)) {
-                Set<String> regions =
-                        sharedPreferences.getStringSet(REGIONS, null);
-
-                if (regions != null && regions.size()>0){
-                    quizFragment.updateGuessRows(sharedPreferences);
-                    quizFragment.resetQuiz();
-                }
-                else {
-
-                    SharedPreferences.Editor editor =
-                            sharedPreferences.edit();
-                    regions.add(getString(R.string.default_region));
-                    editor.putStringSet(REGIONS, regions);
-                    editor.apply();
-
-                    Toast.makeText(MainActivity.this,
-                            R.string.default_region_message,
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-            Toast.makeText(MainActivity.this,
-                    R.string.restarting_quiz,
-                    Toast.LENGTH_SHORT).show();
-        }
-    };
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -129,6 +95,21 @@ public class MainActivity extends AppCompatActivity {
                 Configuration.SCREENLAYOUT_SIZE_MASK;
     }
 
+    public MainActivityFragment_CCKD getQuizFragment() {
+        return this.quizFragment;
+    }
+
+    public QuizViewModel_CCKD getQuizViewModel() {
+        return quizViewModel;
+    }
+
+    public static String getCHOICES() {
+        return CHOICES;
+    }
+
+    public static String getREGIONS() {
+        return REGIONS;
+    }
 
     public void setPreferencesChanged(boolean preferencesChanged) {
         this.preferencesChanged = preferencesChanged;
